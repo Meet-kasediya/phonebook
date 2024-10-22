@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<br>
+<div class="out">
+  <div class="item"><a href ="{{url_for('CreateContact')}}">Create Contact</a></div>
+  <div class="item"><a href ="{{url_for('SearchContact')}}">Search Contact</a></div>
+  <div class="item"><a href ="{{url_for('SearchContact')}}">Update Contact</a></div>
+  <div class="item"><a href ="{{url_for('SearchContact')}}">Delete Contact</a></div>
+  <div class="item"><a href ="{{url_for('addcategory')}}">Create Category</a></div>
+  <div class="item"><a href ="{{url_for('contactcategory')}}">Display Contacts with category</a></div>
+</div>
+
+
+{% endblock %}

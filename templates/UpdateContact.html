@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+  <br>
+    <form action = "{{ url_for('UpdateContact') }}" class="form" method="POST" id="form_id">
+
+    <span><center><span style="font-weight: bold;">UPDATE</span></center></span>
+    
+    <input type="hidden" name="id" value={{contact_id}}><br>
+    
+
+    <label for="replace">Update: </label>
+
+    <select name="replace" id="replace" form="form_id">
+    <option value="0">Firstname</option>
+    <option value="1">Lastname</option>
+    <option value="2">Email</option>
+    <option value="3">Number</option>
+    <option value="4">Address</option>
+    <option value="5">Organisation</option>
+    </select>
+    <br><br>
+
+    <label>Replace by: </label>
+    <input type="text" name="by"><br>
+
+    <button> Update </button>
+    
+    </form>
+
+  {% endblock %}
+

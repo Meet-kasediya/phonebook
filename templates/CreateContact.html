@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<br>
+  <form action = "{{ url_for('CreateContact')}}" class="form" method="POST">
+   <span><center><span style="font-weight: bold;">Creating New Contact</span></center></span>
+<br>
+  <label>First name: </label>
+  <input type="text" name="Firstname"><br>
+
+  <label>Last name: </label>
+  <input type="text" name="Lastname"><br>
+
+  <label>Email: </label>
+  <input type="text" name="Email"><br>
+
+  <label>No.: </label>
+  <input type="text" name="No"><br>
+
+  <label>Address: </label>
+  <input type="text" name="Address"><br>
+
+  <label>Organisation: </label>
+  <input type="text" name="Organisation"><br>
+<button > Add </button>
+</form>
+
+{% endblock %}

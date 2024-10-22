@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<br>
+  <form action = "{{ url_for('results') }}" class="form" method="POST">
+   <span><center><span style="font-weight: bold;">SEARCH</span></center></span>
+   <br>
+
+  <label>Enter search term: </label>
+  <input type="text" name="searchfor"><br>
+
+<div style="display: flex;" class="div-btn">
+<button> Search </button> <button> Show Contacts </button>
+</div>
+</form>
+
+{% endblock %}

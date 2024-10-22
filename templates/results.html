@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<br>
+
+   <h2>Search Results</h2>
+<table>
+
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>No</th>
+    <th>Address</th>
+    <th>Organisation</th>
+    <th>Actions</th>
+  </tr>
+  
+{% for contact in rows %}
+  
+  <tr>
+    <td> {{ contact[0] }} </td>
+    <td> {{ contact[1] }} </td>
+    <td> {{ contact[2] }} </td>
+    <td> {{ contact[3] }} </td>
+    <td> {{ contact[4] }} </td>
+    <td> {{ contact[5] }} </td>
+    <td> {{ contact[6] }} </td>
+    <td class="action-td">
+      <form action="{{url_for('gatherID')}}" method = "POST" >
+      <input name="id" value="{{ contact[0] }}" type="hidden">
+      <button class="update-btn">🖉</button></form>
+
+
+      <form action="{{url_for('gatheridforcategory')}}" method = "POST" >
+      <input name="id" value="{{ contact[0] }}" type="hidden">
+      <button class="update-btn">➕</button></form>
+
+      <form action="{{url_for('deleteID')}}" method = "POST" >
+      <input name="id" value="{{ contact[0] }}" type="hidden">
+      <button class="update-btn">✖️</button></form>
+
+    </td>
+  </tr>
+
+{% endfor %}
+
+</table>
+
+
+
+{% endblock %}
