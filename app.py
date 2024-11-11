@@ -1,5 +1,5 @@
 from flask import Flask, render_template,url_for,request
-import sqlite3 #interact with SQLite databases
+import sqlite3
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def CreateContact():
         No = request.form["No"]
         Address = request.form["Address"]
         organisation = request.form["Organisation"]
-        myconn = sqlite3.connect('database.db') # opens a connection to a SQLite database file
+        myconn = sqlite3.connect('database.db')
         cursor = myconn.cursor()
         cursor.execute('''INSERT INTO contact (contact_firstname, contact_lastname, contact_email, contact_No, contact_address, contact_organisation) values (?,?,?,?,?,?)''',(firstname,lastname,Email,No,Address,organisation))
         cursor.close()
@@ -169,7 +169,38 @@ def addtocategory():
         myconn.commit()
         return render_template("home.html")
 
+def create_db():
+    myconn = sqlite3.connect('database.db')
+    cursor = myconn.cursor()
 
+    cursor.execute('''CREATE TABLE IF NOT EXISTS contact (
+        contact_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        contact_firstname TEXT,
+        contact_lastname TEXT,
+        contact_email TEXT,
+        contact_no TEXT,
+        contact_address TEXT,
+        contact_organisation TEXT
+    )''')
+
+    cursor.execute('''CREATE TABLE IF NOT EXISTS category (
+        category_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        category_name TEXT UNIQUE
+    )''')
+
+    cursor.execute('''CREATE TABLE IF NOT EXISTS contact_category (
+        contact_id INTEGER,
+        category_id INTEGER,
+        FOREIGN KEY(contact_id) REFERENCES contact(contact_id),
+        FOREIGN KEY(category_id) REFERENCES category(category_id)
+    )''')
+
+    myconn.commit()
+    cursor.close()
+    myconn.close()
+
+
+create_db()
 
 if __name__ == "__main__":
 	app.run(debug=True)
