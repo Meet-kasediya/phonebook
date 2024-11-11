@@ -1,9 +1,4 @@
-import sqlite3 #interact with SQLite databases
-myconn = sqlite3.connect('database1.db') # opens a connection to a SQLite database file
-
-
-
-
+# queries --
 # CREATE TABLE IF NOT EXISTS contacts (
 #     contact_id INTEGER PRIMARY KEY AUTOINCREMENT,
 #     contact_firstname TEXT,
