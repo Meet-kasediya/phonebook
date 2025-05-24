@@ -106,11 +106,6 @@ pip install -r requirements.txt
 4. **Managing Categories**: Add, update, or delete categories via `/addcategory`, `/updatecategory`, and `/deletecategory`.
 5. **Assigning Categories**: Go to `/gatheridforcategory` to assign contacts to categories.
 
-## Live Demo
-
-[PREVIEW](https://phonebook-2-production.up.railway.app/)
-
-
 Pull requests are welcome. For major changes, please open an issue first to discuss the proposed changes.
 
 ---
